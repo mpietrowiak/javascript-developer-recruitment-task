@@ -22,7 +22,9 @@ Put your implementation on your GitHub. Fork this repo and share us a link when 
 Feel free add a comment on what was the biggest issue during this task. 
 If you can't made it on time, please share us the most recent version and tell us what is missing and why you couldn't finish.
 
+
 _Good luck!_
+
 _co.brick team_
 
 
