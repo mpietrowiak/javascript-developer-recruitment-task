@@ -9,7 +9,7 @@ import { FavoriteDataAggregatorService } from '../favorite-data-aggregator.servi
 })
 export class DashboardComponent implements OnInit {
   favoriteCitiesData: Array<ICurrentWeatherResponse> = [];
-  isLoading: boolean = false;
+  isLoading: boolean = true;
 
   constructor(private favoriteDataAggregatorService: FavoriteDataAggregatorService) { }
 
@@ -18,8 +18,12 @@ export class DashboardComponent implements OnInit {
   }
 
   getFavoriteCities(): void {
-    this.favoriteDataAggregatorService.getFavoritesData().subscribe(data => {
-      this.favoriteCitiesData = data;
-    });
+    this.favoriteDataAggregatorService.getFavoritesData().subscribe(
+      (data) => {
+        this.favoriteCitiesData = data;
+      }, 
+      () => {}, 
+      () => { this.isLoading = false; }
+    );
   }
 }
