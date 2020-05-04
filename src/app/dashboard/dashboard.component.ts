@@ -10,6 +10,7 @@ import { FavoriteDataAggregatorService } from '../favorite-data-aggregator.servi
 export class DashboardComponent implements OnInit {
   favoriteCitiesData: Array<ICurrentWeatherResponse> = [];
   isLoading: boolean = true;
+  filterValue: string = '';
 
   constructor(private favoriteDataAggregatorService: FavoriteDataAggregatorService) { }
 

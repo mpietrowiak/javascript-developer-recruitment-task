@@ -10,7 +10,8 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { ForecastedWeatherComponent } from './forecasted-weather/forecasted-weather.component';
 import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FilternamePipe } from './filtername.pipe';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     CitiesListComponent,
     CurrentWeatherComponent,
     ForecastedWeatherComponent,
-    SearchComponent
+    SearchComponent,
+    FilternamePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

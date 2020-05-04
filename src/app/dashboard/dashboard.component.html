@@ -7,11 +7,17 @@
 </div>
 
 <ng-template #elseBlock>
+  <input type="text" [(ngModel)]="filterValue" placeholder="Filter..."/>
   <ul class="favorite-cities-list">
-    <li *ngFor="let cityData of favoriteCitiesData">
-      <a [routerLink]="['/city', cityData.id]">
-        <current-weather [weatherData]='cityData'></current-weather>
-      </a>
-    </li>
+    <ng-container *ngIf="favoriteCitiesData | filtername:filterValue as results; else noItemsFilter">
+      <li *ngFor="let cityData of results">
+        <a [routerLink]="['/city', cityData.id]">
+          <current-weather [weatherData]='cityData'></current-weather>
+        </a>
+      </li>
+      <ng-container *ngIf="!results.length" [ngTemplateOutlet]="noItemsFilter"></ng-container>
+    </ng-container>
   </ul>
 </ng-template>
+
+<ng-template #noItemsFilter>No items found by your filter. Please type a different phrase or add more favorite cities so you can find them.</ng-template>
