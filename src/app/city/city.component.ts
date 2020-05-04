@@ -29,14 +29,14 @@ export class CityComponent implements OnInit {
   }
 
   getCurrentWeather(id: number) {
-    this.weatherService.getCurrentWeatherForCity(id).subscribe({
+    this.weatherService.getCurrentWeatherForCityId(id).subscribe({
       next: currentWeather => this.currentWeather = currentWeather,
       error: err => this.errorMessage = err
     });
   }
 
   getForecastedWeather(id: number) {
-    this.weatherService.getForecastedWeatherForCity(id).subscribe({
+    this.weatherService.getForecastedWeatherForCityId(id).subscribe({
       next: forecastedWeather => this.forecastedWeather = forecastedWeather,
       error: err => this.errorMessage = err
     });  }

@@ -5,24 +5,31 @@ import { ICurrentWeatherResponse } from './current-weather-response';
 import { IForecastedWeatherResponse } from './forecasted-weather-response';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
+  private APIBasePath = '//api.openweathermap.org/data/2.5';
   private appId: string = '4cdcbf0253f8d80688c59d35515a52f1';
 
   constructor(private http: HttpClient) { }
 
-  getCurrentWeatherForCity(id: number): Observable<ICurrentWeatherResponse> {
-    const requestUrl = `http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=${this.appId}`;
+  getCurrentWeatherForCityId(id: number): Observable<ICurrentWeatherResponse> {
+    const requestUrl = `${this.APIBasePath}/weather?id=${id}&appid=${this.appId}`;
     return this.http.get<ICurrentWeatherResponse>(requestUrl)
       .pipe(catchError(this.handleError));
   }
 
-  getForecastedWeatherForCity(id: number): Observable<IForecastedWeatherResponse> {
-    const requestUrl = `http://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=${this.appId}`;
+  getCurrentWeatherForCityName(name: string): Observable<ICurrentWeatherResponse> {
+    const requestUrl = `${this.APIBasePath}/weather?q=${name}&appid=${this.appId}`;
+    return this.http.get<ICurrentWeatherResponse>(requestUrl)
+      .pipe(catchError(this.handleError));
+  }
+
+  getForecastedWeatherForCityId(id: number): Observable<IForecastedWeatherResponse> {
+    const requestUrl = `${this.APIBasePath}/forecast?id=${id}&appid=${this.appId}`;
     return this.http.get<IForecastedWeatherResponse>(requestUrl)
       .pipe(catchError(this.handleError));
   }

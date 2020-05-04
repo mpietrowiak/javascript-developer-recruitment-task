@@ -1,0 +1,10 @@
+<h2>Search for a city:</h2>
+<input placeholder="City name..." [formControl]="searchInput" />
+
+<div *ngIf="error">
+  <p>{{ error.toString() }}</p>
+</div>
+
+<div *ngIf="result">
+  <p>{{ result.name }}</p>
+</div>
