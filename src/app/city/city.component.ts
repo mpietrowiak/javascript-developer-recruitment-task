@@ -4,6 +4,7 @@ import { WeatherService } from '../weather.service';
 
 import { ICurrentWeatherResponse } from '../current-weather-response';
 import { IForecastedWeatherResponse } from '../forecasted-weather-response';
+import { FavoriteStorageService } from '../favorite-storage.service';
 
 @Component({
   selector: 'app-city',
@@ -14,29 +15,47 @@ export class CityComponent implements OnInit {
   currentWeather: ICurrentWeatherResponse;
   forecastedWeather: IForecastedWeatherResponse;
   errorMessage = '';
+  isCityFavorite: boolean = false;
+  cityId: number = null;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private weatherService: WeatherService) { }
+              private weatherService: WeatherService,
+              private favoriteStorageService: FavoriteStorageService) { }
 
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
-      const id = +param;
-      this.getCurrentWeather(id);
-      this.getForecastedWeather(id);
+      this.cityId = +param;
+      this.getCurrentWeather();
+      this.getForecastedWeather();
+      this.getIsCityFavorite();
     }
   }
 
-  getCurrentWeather(id: number) {
-    this.weatherService.getCurrentWeatherForCityId(id).subscribe({
+  addToFavorites() {
+    this.favoriteStorageService.addFavoriteCityID(this.cityId);
+    this.isCityFavorite = true;
+  }
+
+  removeFromFavorites() {
+    this.favoriteStorageService.removeFavoriteCityID(this.cityId);
+    this.isCityFavorite = false;
+  }
+
+  getIsCityFavorite() {
+    this.isCityFavorite = this.favoriteStorageService.isCityFavorite(this.cityId);
+  }
+
+  getCurrentWeather() {
+    this.weatherService.getCurrentWeatherForCityId(this.cityId).subscribe({
       next: currentWeather => this.currentWeather = currentWeather,
       error: err => this.errorMessage = err
     });
   }
 
-  getForecastedWeather(id: number) {
-    this.weatherService.getForecastedWeatherForCityId(id).subscribe({
+  getForecastedWeather() {
+    this.weatherService.getForecastedWeatherForCityId(this.cityId).subscribe({
       next: forecastedWeather => this.forecastedWeather = forecastedWeather,
       error: err => this.errorMessage = err
     });  }

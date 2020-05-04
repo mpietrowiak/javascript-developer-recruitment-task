@@ -1,3 +1,11 @@
-<p>dashboard works!</p>
+<div *ngIf="isLoading">
+  Loading...
+</div>
 
-<cities-list></cities-list>
+<div *ngIf="!isLoading">
+  <div *ngIf="favoriteCities.length === 0; else elseBlock">There are no items in your favorites list. Go find a city and add it to your list!</div>
+</div>
+
+<ng-template #elseBlock>
+  some items....
+</ng-template>

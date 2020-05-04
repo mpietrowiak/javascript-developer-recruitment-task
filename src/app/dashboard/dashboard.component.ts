@@ -7,11 +7,16 @@ import { ICurrentWeatherResponse } from '../current-weather-response';
   styleUrls: ['./dashboard.component.styl']
 })
 export class DashboardComponent implements OnInit {
-  favoriteCities: Array<ICurrentWeatherResponse>;
+  favoriteCities: Array<ICurrentWeatherResponse> = [];
+  isLoading: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.getFavoriteCities();
   }
 
+  getFavoriteCities(): void {
+    // TODO get the favorities city data
+  }
 }
