@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ICurrentWeatherResponse } from '../current-weather-response';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.styl']
 })
 export class DashboardComponent implements OnInit {
+  favoriteCities: Array<ICurrentWeatherResponse>;
 
   constructor() { }
 

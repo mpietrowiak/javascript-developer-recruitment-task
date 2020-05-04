@@ -1,10 +1,14 @@
-<h2>Search for a city:</h2>
-<input placeholder="City name..." [formControl]="searchInput" />
+<div class="search-bar">
+  <h2>Search for a city:</h2>
+  <input placeholder="City name..." [formControl]="searchInput" />
+</div>
 
-<div *ngIf="error">
+<div class="error" *ngIf="error">
   <p>{{ error.toString() }}</p>
 </div>
 
 <div *ngIf="result">
-  <p>{{ result.name }}</p>
+  <a [routerLink]="['/city', result.id]">
+    <current-weather [weatherData]='result'></current-weather>
+  </a>
 </div>

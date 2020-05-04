@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IForecastedWeatherResponse } from '../forecasted-weather-response';
 
 @Component({
-  selector: 'app-forecasted-weather',
+  selector: 'forecasted-weather',
   templateUrl: './forecasted-weather.component.html',
   styleUrls: ['./forecasted-weather.component.styl']
 })
 export class ForecastedWeatherComponent implements OnInit {
+  @Input() weatherData: IForecastedWeatherResponse;
 
   constructor() { }
 

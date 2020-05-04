@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ICurrentWeatherResponse } from '../current-weather-response';
 
 @Component({
-  selector: 'app-current-weather',
+  selector: 'current-weather',
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.styl']
 })
 export class CurrentWeatherComponent implements OnInit {
-
+  @Input() weatherData: ICurrentWeatherResponse;
   constructor() { }
 
   ngOnInit(): void {

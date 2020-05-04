@@ -1,3 +1,7 @@
-<p>city works!</p>
+<h2>Weather for city: {{currentWeather.name}}</h2>
 
-<div>{{forecastedWeather}}</div>
+<h3>Current</h3>
+<current-weather [weatherData]='currentWeather'></current-weather>
+
+<h3>Forecasted</h3>
+<forecasted-weather [weatherData]='forecastedWeather'></forecasted-weather>

@@ -35,6 +35,7 @@ export class SearchComponent implements OnInit {
           )
         }))
       .subscribe(result => {
+        this.error = null;
         this.result = result;
       });
   }
