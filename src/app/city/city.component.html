@@ -1,7 +1,17 @@
-<h2>Weather for city: {{currentWeather.name}}</h2>
+<div *ngIf="currentWeather">
+  <h2>Weather for city: {{currentWeather.name}}</h2>
 
-<h3>Current</h3>
-<current-weather [weatherData]='currentWeather'></current-weather>
+  <div *ngIf="!isCityFavorite; else favorited">
+    <button (click)="addToFavorites()">Add to favorites</button>
+  </div>
 
-<h3>Forecasted</h3>
-<forecasted-weather [weatherData]='forecastedWeather'></forecasted-weather>
+  <h3>Current</h3>
+  <current-weather [weatherData]='currentWeather'></current-weather>
+
+  <h3>Forecasted</h3>
+  <forecasted-weather [weatherData]='forecastedWeather'></forecasted-weather>
+</div>
+
+<ng-template #favorited>
+  <button (click)="removeFromFavorites()">Remove from favorites</button>
+</ng-template>

@@ -5,7 +5,7 @@ import { ICurrentWeatherResponse } from './current-weather-response';
 import { IForecastedWeatherResponse } from './forecasted-weather-response';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

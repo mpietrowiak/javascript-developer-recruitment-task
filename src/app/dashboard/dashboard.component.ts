@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICurrentWeatherResponse } from '../current-weather-response';
+import { FavoriteDataAggregatorService } from '../favorite-data-aggregator.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,16 +8,18 @@ import { ICurrentWeatherResponse } from '../current-weather-response';
   styleUrls: ['./dashboard.component.styl']
 })
 export class DashboardComponent implements OnInit {
-  favoriteCities: Array<ICurrentWeatherResponse> = [];
+  favoriteCitiesData: Array<ICurrentWeatherResponse> = [];
   isLoading: boolean = false;
 
-  constructor() { }
+  constructor(private favoriteDataAggregatorService: FavoriteDataAggregatorService) { }
 
   ngOnInit(): void {
     this.getFavoriteCities();
   }
 
   getFavoriteCities(): void {
-    // TODO get the favorities city data
+    this.favoriteDataAggregatorService.getFavoritesData().subscribe(data => {
+      this.favoriteCitiesData = data;
+    });
   }
 }

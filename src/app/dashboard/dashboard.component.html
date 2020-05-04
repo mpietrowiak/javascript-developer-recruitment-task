@@ -3,9 +3,15 @@
 </div>
 
 <div *ngIf="!isLoading">
-  <div *ngIf="favoriteCities.length === 0; else elseBlock">There are no items in your favorites list. Go find a city and add it to your list!</div>
+  <div *ngIf="favoriteCitiesData.length === 0; else elseBlock">There are no items in your favorites list. Go find a city and add it to your list!</div>
 </div>
 
 <ng-template #elseBlock>
-  some items....
+  <ul class="favorite-cities-list">
+    <li *ngFor="let cityData of favoriteCitiesData">
+      <a [routerLink]="['/city', cityData.id]">
+        <current-weather [weatherData]='cityData'></current-weather>
+      </a>
+    </li>
+  </ul>
 </ng-template>
