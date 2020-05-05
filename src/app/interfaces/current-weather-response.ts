@@ -1,10 +1,10 @@
 interface CurrentWeatherResponseMain {
-  feels_like: Number,
-  humidity: Number,
-  pressure: Number,
-  temp: Number,
-  temp_max: Number,
-  temp_min: Number
+  feels_like: number,
+  humidity: number,
+  pressure: number,
+  temp: number,
+  temp_max: number,
+  temp_min: number
 }
 
 export interface ICurrentWeatherResponse {
@@ -14,10 +14,10 @@ export interface ICurrentWeatherResponse {
   main: CurrentWeatherResponseMain,
   wind: Object,
   clouds: Object,
-  dt: Number,
+  dt: number,
   sys: Object,
-  timezone: Number,
-  id: Number,
+  timezone: number,
+  id: number,
   name: String,
-  cod: Number
+  cod: number
 }

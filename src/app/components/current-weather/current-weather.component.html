@@ -1,6 +1,6 @@
 <div class="currentWeather">
   <h4>{{ weatherData.name }}</h4>
-  <div class="temperature">Temperature: {{ weatherData.main.temp }}</div>
+  <div class="temperature">Temperature: {{ weatherData.main.temp | kelvinToCelsius | number:'1.0-2' }} &deg;C</div>
   <div class="pressure">Pressure: {{ weatherData.main.pressure }}</div>
   <div class="humidity">Humidity: {{ weatherData.main.humidity }}</div>  
 </div>

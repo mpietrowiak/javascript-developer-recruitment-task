@@ -1,9 +1,9 @@
 import { IForecastedWeatherEntry } from './forecasted-weather-entry';
 
 export interface IForecastedWeatherResponse {
-  cod: Number,
-  message: Number,
-  cnt: Number,
+  cod: number,
+  message: number,
+  cnt: number,
   list: Array<IForecastedWeatherEntry>,
   city: Object,
 }

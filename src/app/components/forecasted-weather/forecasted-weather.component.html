@@ -1,7 +1,7 @@
 <ul class="forecastedWeatherList" *ngIf="weatherData && weatherData.list">
   <li class="forecastedWeather" *ngFor="let entry of weatherData.list">
     <h4>{{ entry.dt_txt }}</h4>
-    <div class="temperature">Temperature: {{ entry.main.temp }}</div>
+    <div class="temperature">Temperature: {{ entry.main.temp | kelvinToCelsius | number:'1.0-2' }} &deg;C</div>
     <div class="pressure">Pressure: {{ entry.main.pressure }}</div>
     <div class="humidity">Humidity: {{ entry.main.humidity }}</div>  
   </li>

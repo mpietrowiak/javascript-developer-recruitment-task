@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FilternamePipe } from './pipes/filtername.pipe';
 import { SortnamePipe } from './pipes/sortname.pipe';
+import { KelvinToCelsiusPipe } from './pipes/kelvin-to-celsius.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SortnamePipe } from './pipes/sortname.pipe';
     ForecastedWeatherComponent,
     SearchComponent,
     FilternamePipe,
-    SortnamePipe
+    SortnamePipe,
+    KelvinToCelsiusPipe
   ],
   imports: [
     BrowserModule,

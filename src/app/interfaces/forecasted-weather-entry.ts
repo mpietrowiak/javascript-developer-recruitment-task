@@ -1,6 +1,6 @@
 export interface IForecastedWeatherEntry {
   clouds: Object,
-  dt: Number,
+  dt: number,
   dt_txt: String,
   main: Object,
   rain: Object,
