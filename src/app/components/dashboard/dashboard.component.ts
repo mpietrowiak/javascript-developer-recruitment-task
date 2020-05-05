@@ -11,6 +11,8 @@ export class DashboardComponent implements OnInit {
   favoriteCitiesData: Array<ICurrentWeatherResponse> = [];
   isLoading: boolean = true;
   filterValue: string = '';
+  isSorted: boolean = false;
+  sortType: string = 'ascending';
 
   constructor(private favoriteDataAggregatorService: FavoriteDataAggregatorService) { }
 

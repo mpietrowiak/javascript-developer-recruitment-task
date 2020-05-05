@@ -5,7 +5,7 @@ import { ICurrentWeatherResponse } from '../interfaces/current-weather-response'
   name: 'filtername'
 })
 export class FilternamePipe implements PipeTransform {
-  transform(value: ICurrentWeatherResponse[], ...args: String[]): unknown {
+  transform(value: ICurrentWeatherResponse[], ...args: String[]): ICurrentWeatherResponse[] {
     return value.filter((item) => item.name.toLowerCase().includes(args[0].toLowerCase()));
   }
 }

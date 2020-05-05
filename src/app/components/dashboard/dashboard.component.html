@@ -8,8 +8,20 @@
 
 <ng-template #elseBlock>
   <input type="text" [(ngModel)]="filterValue" placeholder="Filter..."/>
+  <label>
+    <input type="checkbox" [(ngModel)]="isSorted"> Sort by name
+    <div *ngIf="isSorted">
+      <label>
+        <input type="radio"  [(ngModel)]="sortType" name="sortType" value="ascending"> Ascending
+      </label>
+      <label>
+        <input type="radio"  [(ngModel)]="sortType" name="sortType" value="descending"> Descending
+      </label>      
+    </div>
+  </label>
+
   <ul class="favorite-cities-list">
-    <ng-container *ngIf="favoriteCitiesData | filtername:filterValue as results; else noItemsFilter">
+    <ng-container *ngIf="favoriteCitiesData | filtername:filterValue | sortname:isSorted:sortType as results; else noItemsFilter">
       <li *ngFor="let cityData of results">
         <a [routerLink]="['/city', cityData.id]">
           <current-weather [weatherData]='cityData'></current-weather>

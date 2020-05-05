@@ -12,6 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FilternamePipe } from './pipes/filtername.pipe';
+import { SortnamePipe } from './pipes/sortname.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FilternamePipe } from './pipes/filtername.pipe';
     CurrentWeatherComponent,
     ForecastedWeatherComponent,
     SearchComponent,
-    FilternamePipe
+    FilternamePipe,
+    SortnamePipe
   ],
   imports: [
     BrowserModule,
