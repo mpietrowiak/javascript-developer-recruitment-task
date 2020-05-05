@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { WeatherService } from './weather.service';
 import { FavoriteStorageService } from './favorite-storage.service';
-import { ICurrentWeatherResponse } from './current-weather-response';
+import { ICurrentWeatherResponse } from '../interfaces/current-weather-response';
 import { Observable, forkJoin } from 'rxjs';
 
 @Injectable({

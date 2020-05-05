@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IForecastedWeatherResponse } from '../forecasted-weather-response';
+import { IForecastedWeatherResponse } from '../../interfaces/forecasted-weather-response';
 
 @Component({
   selector: 'forecasted-weather',

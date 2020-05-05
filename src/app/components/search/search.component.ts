@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from '../weather.service';
+import { WeatherService } from '../../services/weather.service';
 import {  EMPTY } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, switchMap, catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ICurrentWeatherResponse } from '../current-weather-response';
+import { ICurrentWeatherResponse } from '../../interfaces/current-weather-response';
 
 @Component({
   selector: 'app-search',

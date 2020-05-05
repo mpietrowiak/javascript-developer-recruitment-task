@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICurrentWeatherResponse } from '../current-weather-response';
-import { FavoriteDataAggregatorService } from '../favorite-data-aggregator.service';
+import { ICurrentWeatherResponse } from '../../interfaces/current-weather-response';
+import { FavoriteDataAggregatorService } from '../../services/favorite-data-aggregator.service';
 
 @Component({
   selector: 'app-dashboard',

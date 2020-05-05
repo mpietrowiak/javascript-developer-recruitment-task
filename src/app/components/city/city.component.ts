@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { WeatherService } from '../weather.service';
+import { WeatherService } from '../../services/weather.service';
 
-import { ICurrentWeatherResponse } from '../current-weather-response';
-import { IForecastedWeatherResponse } from '../forecasted-weather-response';
-import { FavoriteStorageService } from '../favorite-storage.service';
+import { ICurrentWeatherResponse } from '../../interfaces/current-weather-response';
+import { IForecastedWeatherResponse } from '../../interfaces/forecasted-weather-response';
+import { FavoriteStorageService } from '../../services/favorite-storage.service';
 
 @Component({
   selector: 'app-city',

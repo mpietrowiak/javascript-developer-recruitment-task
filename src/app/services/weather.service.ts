@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { ICurrentWeatherResponse } from './current-weather-response';
-import { IForecastedWeatherResponse } from './forecasted-weather-response';
+import { ICurrentWeatherResponse } from '../interfaces/current-weather-response';
+import { IForecastedWeatherResponse } from '../interfaces/forecasted-weather-response';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';

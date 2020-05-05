@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ICurrentWeatherResponse } from './current-weather-response';
+import { ICurrentWeatherResponse } from '../interfaces/current-weather-response';
 
 @Pipe({
   name: 'filtername'
