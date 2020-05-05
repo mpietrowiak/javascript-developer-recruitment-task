@@ -1,1 +1,8 @@
-<p>forecasted-weather works!</p>
+<ul class="forecastedWeatherList" *ngIf="weatherData && weatherData.list">
+  <li class="forecastedWeather" *ngFor="let entry of weatherData.list">
+    <h4>{{ entry.dt_txt }}</h4>
+    <div class="temperature">Temperature: {{ entry.main.temp }}</div>
+    <div class="pressure">Pressure: {{ entry.main.pressure }}</div>
+    <div class="humidity">Humidity: {{ entry.main.humidity }}</div>  
+  </li>
+</ul>
