@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CityComponent } from './components/city/city.component';
-import { CitiesListComponent } from './components/cities-list/cities-list.component';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
 import { ForecastedWeatherComponent } from './components/forecasted-weather/forecasted-weather.component';
 import { SearchComponent } from './components/search/search.component';
@@ -19,7 +18,6 @@ import { SortnamePipe } from './pipes/sortname.pipe';
     AppComponent,
     DashboardComponent,
     CityComponent,
-    CitiesListComponent,
     CurrentWeatherComponent,
     ForecastedWeatherComponent,
     SearchComponent,
